@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
   webapp:
     build: .
@@ -9,7 +9,7 @@ services:
     container_name: webapp
     links:
       - db
-    command: sh /webapp/scripts/setup.sh
+    command: sh /webapp/scripts/startup.sh
     env_file: .env
   db:
     image: postgres

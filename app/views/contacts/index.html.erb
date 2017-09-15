@@ -1,0 +1,36 @@
+<h1>Coder Restaurant</h1>
+<h3> Address: </h3>
+<ul>
+        <% @contacts.each do |contact|  %>
+                <li><%= contact.address %> <%= contact.phone %></li>
+        <% end %>
+</ul>
+
+<head>
+   <style>
+     #map {
+       height: 400px;
+       width: 100%;
+      }
+   </style>
+ </head>
+ <body>
+   <h3>Direction: </h3>
+   <div id="map"></div>
+   <script>
+     function initMap() {
+       var uluru = {lat: 10.7663303, lng: 106.6814146};
+       var map = new google.maps.Map(document.getElementById('map'), {
+         zoom: 14,
+         center: uluru
+       });
+       var marker = new google.maps.Marker({
+         position: uluru,
+         map: map
+       });
+     }
+   </script>
+   <script async defer
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTm1W7NpfEf6rEE8ZOliD2yQfonBOFbUw&callback=initMap">
+   </script>
+ </body>
