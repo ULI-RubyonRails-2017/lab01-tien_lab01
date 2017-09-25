@@ -1,10 +1,25 @@
 <h1>Coder Restaurant</h1>
-<h3> Address: </h3>
+
+<h3> Addresses: </h3>
 <ul>
-        <% @contacts.each do |contact|  %>
-                <li><%= contact.address %> <%= contact.phone %></li>
-        <% end %>
+  <% @contacts.each_with_index do |contact, index|  %>
+    <div class="card border-success align-items-center" style="width: 800px; margin: 0 auto">
+      <img class="card-img-top card-header" alt="Restaurant #<%= index + 1 %>:">
+      <div class="card-body row">
+        <div class="col width:30%">
+            <%= image_tag("https://c2.staticflickr.com/6/5212/5536030583_71e2e7dd1b_b.jpg", alt: "Picture", :width => 400) %>
+        </div>
+        <div class="col width: 70%">
+          <h4 class="card-title"><%= contact.address %></h4>
+          <p class="card-text">Tel. <%= contact.phone %></p>
+          <button type="button" class="btn btn-warning" onclick="window.open("www.facebook.com", '_blank', 'location=yes,height=150,width=120,scrollbars=no,status=no,popup=true');">Google Map</button>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </ul>
+
+
 
 <head>
    <style>

@@ -13,3 +13,6 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require bootstrap
+
+$('a[data-popup]').on('click', function(e) { window.open($(this).attr('href')); e.preventDefault(); });
